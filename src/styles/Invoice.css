@@ -1,0 +1,122 @@
+.invoice {
+}
+
+.invoice-form {
+    padding: 1rem;
+    display: grid;
+    /* grid-template-columns: 1.5em minmax(400px, 650px) minmax(400px, 650px) 1.5em; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "logo logo label label"
+        "info info . ."
+        "table table table table"
+        "notes notes notes notes";
+}
+
+.invoice-logo {
+    width: 150px;
+    grid-area: logo;
+}
+
+.invoice-date {
+}
+
+.invoice-formality {
+    text-align: end;
+    grid-area: label;
+}
+
+.form-info-container {
+    display: flex;
+    max-width: 500px;
+    justify-content: space-between;
+    grid-area: info;
+}
+
+.form-to-info-container {
+    display: flex;
+    max-width: 225px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 16px;
+}
+
+.form-from-info-container {
+    display: flex;
+    max-width: 225px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 16px;
+}
+
+.form-table-div {
+    grid-area: table;
+    margin-top: 40px;
+}
+
+.form-table {
+    /* width: 100%; */
+}
+
+.form-table-tr {
+    text-align: center;
+}
+
+.qty-th {
+    width: 36px;
+}
+
+.item-th {
+    width: 200px;
+}
+
+.unitprice-th {
+    width: 100px;
+}
+
+.tax-th {
+    width: 100px;
+}
+
+.amount-th {
+    width: 100px;
+}
+
+.delete-th {
+    width: 10px;
+}
+
+.qty-td {
+    width: 36px;
+}
+
+.item-td {
+    width: 200px;
+}
+
+.unitprice-td {
+    width: 100px;
+}
+
+.tax-td {
+    width: 100px;
+}
+
+.amount-td {
+    width: 100px;
+}
+
+.delete-td {
+    width: 10px;
+}
+
+.form-table-tr-headers {
+    text-align: center;
+}
+
+.form-notes {
+    grid-area: notes;
+}
+.form-notes .form-notes-textarea {
+    width: 100%;
+}

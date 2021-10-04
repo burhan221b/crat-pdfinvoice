@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+import htmlToPdfmake from "html-to-pdfmake";
+import Invoice from './components/Invoice';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 function App() {
+  const handlePDFDownload = () => {
+    var val = htmlToPdfmake(`
+    <div>
+      <h1>My title</h1>
+      <p>
+        This is a sentence with a <strong>bold word</strong>, <em>one in italic</em>,
+        and <u>one with underline</u>. And finally <a href="https://www.somewhere.com">a link</a>.
+      </p>
+    </div>
+    `);
+    var dd = { content: val };
+    pdfMake.createPdf(dd).download();
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <button onClick={handlePDFDownload}></button> */}
+      <Invoice InvoiceId="1">
+        <Invoice.Form />
+      </Invoice>
     </div>
   );
 }
