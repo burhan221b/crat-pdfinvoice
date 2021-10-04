@@ -62,27 +62,33 @@
     text-align: center;
 }
 
-.qty-th {
+.qty-th,
+.input-qty {
     width: 36px;
 }
 
-.item-th {
+.item-th,
+.input-item {
     width: 200px;
 }
 
-.unitprice-th {
+.unitprice-th,
+.input-unitprice {
     width: 100px;
 }
 
-.tax-th {
+.tax-th,
+.input-tax {
     width: 100px;
 }
 
-.amount-th {
+.amount-th,
+.input-amount {
     width: 100px;
 }
 
-.delete-th {
+.delete-th,
+.input-delete {
     width: 10px;
 }
 

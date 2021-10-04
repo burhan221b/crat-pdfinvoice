@@ -37,13 +37,24 @@ const Invoice = (props: InvoiceProps) => {
 - Create PDF Invoice Button
 */
 
-const TableRow = () => {
-    return (<tr className="form-table-tr">
+/* 
+<tr className="form-table-tr">
         <td className="qty-td">1</td>
         <td className="item-td">Maria Anders</td>
         <td className="unitprice-td">11111</td>
         <td className="tax-td">9.13</td>
         <td className="amount-td">11111</td>
+        <td className="delete-td"><button>&#10005;</button></td>
+    </tr>
+*/
+
+const TableRow = () => {
+    return (<tr className="form-table-tr">
+        <td className="qty-td"><input type="number" className="input-qty" /></td>
+        <td className="item-td"><input type="text" className="input-item" /></td>
+        <td className="unitprice-td"><input type="number" className="input-unitprice" /></td>
+        <td className="tax-td"><input type="number" className="input-tax" /></td>
+        <td className="amount-td"><input type="number" className="input-amount" /></td>
         <td className="delete-td"><button>&#10005;</button></td>
     </tr>)
 }
