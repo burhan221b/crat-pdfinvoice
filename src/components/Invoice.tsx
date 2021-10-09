@@ -1,5 +1,7 @@
-import React, { CSSProperties, ReactElement, useRef, useEffect, FormEvent } from 'react';
+import React, { CSSProperties, ReactElement, useRef, useEffect, FormEvent, ChangeEvent, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import "../styles/Invoice.css";
+import UseForm from '../utils/UseForm';
 
 export interface InvoiceProps {
     children: Element | ReactElement[] | Element[] | React.FormEvent<HTMLInputElement> | any,
@@ -9,6 +11,26 @@ export interface InvoiceProps {
 
 export interface InvoiceFormProps {
     customStyles?: CSSProperties | undefined
+}
+
+export interface PassingStateProps {
+    state?: any,
+    handleListChange?: any,
+    handleDeleteRow?: any,
+    row?: any,
+    index?: number,
+    id?: string,
+    handleDeleteBtn?: any,
+    updateRow?: any
+}
+
+export interface Row {
+    qty: number,
+    item: string,
+    unit_price: number,
+    tax: number,
+    amount: number,
+    id: string
 }
 
 // Main Body of Invoice
@@ -37,50 +59,78 @@ const Invoice = (props: InvoiceProps) => {
 - Create PDF Invoice Button
 */
 
-/* 
-<tr className="form-table-tr">
-        <td className="qty-td">1</td>
-        <td className="item-td">Maria Anders</td>
-        <td className="unitprice-td">11111</td>
-        <td className="tax-td">9.13</td>
-        <td className="amount-td">11111</td>
-        <td className="delete-td"><button>&#10005;</button></td>
-    </tr>
-*/
 
-const TableRow = () => {
-    return (<tr className="form-table-tr">
-        <td className="qty-td"><input type="number" className="input-qty" /></td>
-        <td className="item-td"><input type="text" className="input-item" /></td>
-        <td className="unitprice-td"><input type="number" className="input-unitprice" /></td>
-        <td className="tax-td"><input type="number" className="input-tax" /></td>
-        <td className="amount-td"><input type="number" className="input-amount" /></td>
-        <td className="delete-td"><button>&#10005;</button></td>
+const TableRow = (props: PassingStateProps) => {
+    const { row, index, updateRow, handleDeleteBtn, id } = props;
+    return (<tr key={index} className="form-table-tr">
+        <td className="qty-td"><input onChange={(e) => updateRow(e, id)} name="qty" value={row.qty} type="number" className="input-qty" /></td>
+        <td className="item-td"><input onChange={(e) => updateRow(e, id)} name="item" value={row.item} type="text" className="input-item" /></td>
+        <td className="unitprice-td"><input onChange={(e) => updateRow(e, id)} name="unitprice" value={row.unitprice} type="number" className="input-unitprice" /></td>
+        <td className="tax-td"><input onChange={(e) => updateRow(e, id)} name="tax" value={row.tax} type="number" className="input-tax" /></td>
+        <td className="amount-td"><input onChange={(e) => updateRow(e, id)} name="amount" value={row.amount} type="number" className="input-amount" /></td>
+        <td className="delete-td"><button onClick={() => handleDeleteBtn(id)} name="delete" type="button">&#10005;</button></td>
     </tr>)
 }
 
-const TableRows = () => {
 
+const TableRows = (props: PassingStateProps) => {
+    const { state, handleListChange, handleDeleteRow } = props;
+    let [rows, setRows] = useState<any[]>([]);
+    const updateRow = (e: ChangeEvent<HTMLInputElement>, id: string) => {
+        e.preventDefault()
+        let [temp] = rows.filter((o: any) => o.id === id);
+        const { name, value } = e.target;
+        temp = { ...temp, [name]: value }
+        const newRows = rows.map((o: any) => (o.id === id) ? temp : o);
+        setRows(newRows);
+        handleListChange(e, id)
+    }
+
+    const handleDeleteBtn = (id: string) => {
+        let temp = rows.filter((o: any) => o.id !== id);
+        handleDeleteRow(id);
+        setRows(temp);
+    }
+
+    useEffect(() => {
+        const items = state.items || [];
+        console.log("useEffect items", items)
+        setRows([...items])
+        return () => {
+
+        }
+    }, [state.items])
+
+    const createTableRows = () => {
+        return rows.map((row: Row, index: number) => (
+            <TableRow updateRow={updateRow} handleDeleteBtn={handleDeleteBtn} key={row.id} id={row.id} index={index} row={row} />
+        ))
+    }
     return (<>
-        <TableRow />
-        {/* Button To Add Row */}
-        <button className="add-row">Add &#10010;</button>
+        {createTableRows()}
+        <button type="button" onClick={() => setRows([...rows, { id: uuidv4() }])} className="add-row">Add &#10010;</button>
     </>)
 }
 
-const FormTable = () => {
+
+const FormTable = (props: PassingStateProps) => {
+    const { state, handleListChange, handleDeleteRow } = props;
     return (
         <div className="form-table-div">
             <table className="form-table">
-                <tr className="form-table-tr form-table-tr-headers">
-                    <th className="qty-th">QTY</th>
-                    <th className="item-th">ITEM</th>
-                    <th className="unitprice-th">UNIT PRICE</th>
-                    <th className="tax-th">TAX%</th>
-                    <th className="amount-th">AMOUNT</th>
-                    <th className="delete-th"></th>
-                </tr>
-                <TableRows />
+                <thead>
+                    <tr className="form-table-tr form-table-tr-headers">
+                        <th className="qty-th">QTY</th>
+                        <th className="item-th">ITEM</th>
+                        <th className="unitprice-th">UNIT PRICE</th>
+                        <th className="tax-th">TAX%</th>
+                        <th className="amount-th">AMOUNT</th>
+                        <th className="delete-th"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <TableRows state={state} handleListChange={handleListChange} handleDeleteRow={handleDeleteRow} />
+                </tbody>
             </table>
         </div>
     )
@@ -88,6 +138,8 @@ const FormTable = () => {
 
 Invoice.Form = (props: InvoiceFormProps) => {
     const { customStyles } = props
+    const { state, handleChange, handleListChange, handleDeleteRow } = UseForm({ items: [] });
+
     return (
         <form action="" className="invoice-form" style={customStyles}>
             {/* Logo */}
@@ -95,7 +147,7 @@ Invoice.Form = (props: InvoiceFormProps) => {
             <div className="invoice-formality">
                 <h1 className="invoice-label">INVOICE</h1>
                 {/* Date */}
-                <input type="date" className="invoice-date" />
+                <input onChange={handleChange} name="date" type="date" className="invoice-date" />
             </div>
             <div className="form-info-container">
                 <div className="form-to-container">
@@ -103,13 +155,13 @@ Invoice.Form = (props: InvoiceFormProps) => {
                     <h4 className="form-h-title">To:</h4>
                     <div className="form-to-info-container">
                         <label htmlFor="" className="form-to-label">Name</label>
-                        <input type="text" className="form-to-name" />
+                        <input onChange={handleChange} name="to_name" value={state.to_name} type="text" className="form-to-name" />
                         <label htmlFor="" className="form-to-label">Phone</label>
-                        <input type="text" className="form-to-phone" />
+                        <input onChange={handleChange} name="to_phone" value={state.to_phone} type="text" className="form-to-phone" />
                         <label htmlFor="" className="form-to-label">Email</label>
-                        <input type="text" className="form-to-email" />
+                        <input onChange={handleChange} name="to_email" value={state.to_email} type="text" className="form-to-email" />
                         <label htmlFor="" className="form-to-label">Address</label>
-                        <input type="text" className="form-to-address" />
+                        <input onChange={handleChange} name="to_address" value={state.to_address} type="text" className="form-to-address" />
                     </div>
                 </div>
                 <div className="form-from-container">
@@ -117,22 +169,22 @@ Invoice.Form = (props: InvoiceFormProps) => {
                     {/* From Info */}
                     <div className="form-from-info-container">
                         <label htmlFor="" className="form-from-label">Name</label>
-                        <input type="text" className="form-from-name" />
+                        <input onChange={handleChange} name="from_name" value={state.from_name} type="text" className="form-from-name" />
                         <label htmlFor="" className="form-from-label">Phone</label>
-                        <input type="text" className="form-from-phone" />
+                        <input onChange={handleChange} name="from_phone" value={state.from_phone} type="text" className="form-from-phone" />
                         <label htmlFor="" className="form-from-label">Email</label>
-                        <input type="text" className="form-from-email" />
+                        <input onChange={handleChange} name="from_email" value={state.from_email} type="text" className="form-from-email" />
                         <label htmlFor="" className="form-from-label">Address</label>
-                        <input type="text" className="form-from-address" />
+                        <input onChange={handleChange} name="from_address" value={state.from_address} type="text" className="form-from-address" />
                     </div>
                 </div>
             </div>
             {/* Table  */}
-            <FormTable />
+            {Object.keys(state).length > 0 && <FormTable state={state} handleListChange={handleListChange} handleDeleteRow={handleDeleteRow} />}
             {/* Notes */}
             <div className="form-notes">
                 <h4 className="form-h-title form-notes-title">NOTES:</h4>
-                <textarea name="" id="" cols={30} rows={10} className="form-notes-textarea"></textarea>
+                <textarea onChange={handleChange} name="form_notes" id="" cols={30} rows={10} className="form-notes-textarea" />
             </div>
         </form>
     )
