@@ -1,5 +1,6 @@
 import React, { CSSProperties, ReactElement, useRef, useEffect, FormEvent, ChangeEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { updateDate } from '../events/eventListeners';
 import "../styles/Invoice.css";
 import UseForm from '../utils/UseForm';
 
@@ -115,6 +116,12 @@ const TableRows = (props: PassingStateProps) => {
 
 const FormTable = (props: PassingStateProps) => {
     const { state, handleListChange, handleDeleteRow } = props;
+    useEffect(() => {
+        updateDate();
+        return () => {
+
+        }
+    }, [])
     return (
         <div className="form-table-div">
             <table className="form-table">
@@ -139,7 +146,6 @@ const FormTable = (props: PassingStateProps) => {
 Invoice.Form = (props: InvoiceFormProps) => {
     const { customStyles } = props
     const { state, handleChange, handleListChange, handleDeleteRow } = UseForm({ items: [] });
-
     return (
         <form action="" className="invoice-form" style={customStyles}>
             {/* Logo */}
@@ -147,7 +153,7 @@ Invoice.Form = (props: InvoiceFormProps) => {
             <div className="invoice-formality">
                 <h1 className="invoice-label">INVOICE</h1>
                 {/* Date */}
-                <input onChange={handleChange} name="date" type="date" className="invoice-date" />
+                <input onChange={handleChange} name="date" id="datePicker" type="date" className="invoice-date" />
             </div>
             <div className="form-info-container">
                 <div className="form-to-container">
