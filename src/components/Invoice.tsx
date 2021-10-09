@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { updateDate } from '../events/eventListeners';
 import "../styles/Invoice.css";
 import UseForm from '../utils/UseForm';
+import { handleTotals } from '../utils/utils';
 
 export interface InvoiceProps {
     children: Element | ReactElement[] | Element[] | React.FormEvent<HTMLInputElement> | any,
@@ -23,6 +24,14 @@ export interface PassingStateProps {
     id?: string,
     handleDeleteBtn?: any,
     updateRow?: any
+}
+
+export interface TableTotalProps {
+    TOTAL: number,
+    TAX: number,
+    AMOUNT: number,
+    index?: number,
+    id?: string,
 }
 
 export interface Row {
@@ -61,10 +70,39 @@ const Invoice = (props: InvoiceProps) => {
 */
 
 
+const TableTotalRow = (props: TableTotalProps) => {
+    const { AMOUNT, TAX, TOTAL } = props;
+    return (<><tr className="form-table-tr">
+        <td className="qty-td"></td>
+        <td className="item-td"></td>
+        <td className="unitprice-td"></td>
+        <td className="tax-td"><strong>AMOUNT</strong></td>
+        <td className="amount-td">{AMOUNT}</td>
+        <td className="delete-td"></td>
+    </tr>
+        <tr className="form-table-tr">
+            <td className="qty-td"></td>
+            <td className="item-td"></td>
+            <td className="unitprice-td"></td>
+            <td className="tax-td"><strong>TAX</strong></td>
+            <td className="amount-td">{TAX}</td>
+            <td className="delete-td"></td>
+        </tr>
+        <tr className="form-table-tr">
+            <td className="qty-td"></td>
+            <td className="item-td"></td>
+            <td className="unitprice-td"></td>
+            <td className="tax-td"><strong>TOTAL</strong></td>
+            <td className="amount-td">{TOTAL}</td>
+            <td className="delete-td"></td>
+        </tr>
+    </>)
+}
+
 const TableRow = (props: PassingStateProps) => {
     const { row, index, updateRow, handleDeleteBtn, id } = props;
     return (<tr key={index} className="form-table-tr">
-        <td className="qty-td"><input onChange={(e) => updateRow(e, id)} name="qty" value={row.qty} type="number" className="input-qty" /></td>
+        <td className="qty-td"><input onChange={(e) => updateRow(e, id)} name="qty" value={row.qty} type="number" className="input-qty" min="1" /></td>
         <td className="item-td"><input onChange={(e) => updateRow(e, id)} name="item" value={row.item} type="text" className="input-item" /></td>
         <td className="unitprice-td"><input onChange={(e) => updateRow(e, id)} name="unitprice" value={row.unitprice} type="number" className="input-unitprice" /></td>
         <td className="tax-td"><input onChange={(e) => updateRow(e, id)} name="tax" value={row.tax} type="number" className="input-tax" /></td>
@@ -107,9 +145,20 @@ const TableRows = (props: PassingStateProps) => {
             <TableRow updateRow={updateRow} handleDeleteBtn={handleDeleteBtn} key={row.id} id={row.id} index={index} row={row} />
         ))
     }
+
+    const createTableTotal = () => {
+        const items = state.items;
+        const [AMOUNT, TAX, TOTAL] = handleTotals(items);
+        return (
+            <TableTotalRow AMOUNT={AMOUNT} TAX={TAX} TOTAL={TOTAL} />
+        )
+    }
+
     return (<>
         {createTableRows()}
         <button type="button" onClick={() => setRows([...rows, { id: uuidv4() }])} className="add-row">Add &#10010;</button>
+        {createTableTotal()}
+
     </>)
 }
 
@@ -145,9 +194,9 @@ const FormTable = (props: PassingStateProps) => {
 
 Invoice.Form = (props: InvoiceFormProps) => {
     const { customStyles } = props
-    const { state, handleChange, handleListChange, handleDeleteRow } = UseForm({ items: [] });
+    const { state, handleChange, handleListChange, handleDeleteRow, handleSubmit } = UseForm({ items: [] });
     return (
-        <form action="" className="invoice-form" style={customStyles}>
+        <form onSubmit={(e) => handleSubmit(e, state)} className="invoice-form" style={customStyles}>
             {/* Logo */}
             <img alt="" className="invoice-logo" src="" />
             <div className="invoice-formality">
@@ -191,6 +240,9 @@ Invoice.Form = (props: InvoiceFormProps) => {
             <div className="form-notes">
                 <h4 className="form-h-title form-notes-title">NOTES:</h4>
                 <textarea onChange={handleChange} name="form_notes" id="" cols={30} rows={10} className="form-notes-textarea" />
+            </div>
+            <div className="form-submit">
+                <button type="submit" className="form-submit-btn">Create PDF Invoice</button>
             </div>
         </form>
     )

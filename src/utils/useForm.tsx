@@ -1,4 +1,6 @@
 import { ChangeEvent, ChangeEventHandler, DetailedHTMLProps, TextareaHTMLAttributes, useEffect, useState } from "react";
+import basic_invoice_template from '../json/basic_invoice_template.json';
+import { convertJSONValues, validateMath } from "./utils";
 
 export interface initialStateProps {
     [key: string]: any
@@ -12,6 +14,14 @@ const UseForm = (initialState: initialStateProps) => {
 
         }
     }, [state])
+
+    const handleSubmit = (event: any, state: any) => {
+        event.preventDefault();
+        console.log("CLICKED SUBMIT")
+        const template = basic_invoice_template.template;
+        const pdf_string_ready = convertJSONValues(template, state);
+    }
+
     // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const handleChange = (event: any) => { // Was changed due to text area
         event.preventDefault();
@@ -26,10 +36,12 @@ const UseForm = (initialState: initialStateProps) => {
         let items = state.items || [{ id }];
         let [row] = items.filter((o: any) => o.id === id);
         if (!row) {
-            row = { id };
-            items.push({ id, [name]: value });
+            row = { id, [name]: value };
+            if (name !== "item") row = validateMath(row, name)
+            items.push(row);
         } else {
             row = { ...row, [name]: value }
+            if (name !== "item") row = validateMath(row, name)
             items = items.map((o: any) => (o.id === id) ? { ...o, ...row } : o);
         }
         setState({ ...state, items });
@@ -42,7 +54,7 @@ const UseForm = (initialState: initialStateProps) => {
     }
 
 
-    return { state, handleChange, handleListChange, handleDeleteRow }
+    return { state, handleChange, handleListChange, handleDeleteRow, handleSubmit }
 }
 
 export default UseForm;

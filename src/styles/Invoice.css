@@ -10,7 +10,8 @@
         "logo logo label label"
         "info info . ."
         "table table table table"
-        "notes notes notes notes";
+        "notes notes notes notes"
+        "submit submit submit submit";
 }
 
 .invoice-logo {
@@ -125,4 +126,8 @@
 }
 .form-notes .form-notes-textarea {
     width: 100%;
+}
+
+.form-submit {
+    grid-area: submit;
 }
