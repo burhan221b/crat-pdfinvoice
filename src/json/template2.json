@@ -1,0 +1,1290 @@
+{
+    "template": {
+        "content": [
+            {
+                "nodeName": "TABLE",
+                "table": {
+                    "body": [
+                        [
+                            {
+                                "text": "${LOGO}",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "width": 245,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "fontSize": 27,
+                                "alignment": "left",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "Invoice",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "width": 245,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "fontSize": 27,
+                                "alignment": "right",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "fillColor": "white",
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "nodeName": "TD",
+                                "stack": [
+                                    {
+                                        "nodeName": "UL",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "marginBottom": 5,
+                                        "marginLeft": 5,
+                                        "listStyleType": "none",
+                                        "style": [
+                                            "html-ul",
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ],
+                                        "ul": [
+                                            {
+                                                "text": "Date: ${DATE}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "width": 8,
+                                                "alignment": "right",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            }
+                                        ],
+                                        "type": "none"
+                                    },
+                                    {
+                                        "text": "  ",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "style": [
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ]
+                                    }
+                                ],
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "fillColor": "white",
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ]
+                    ],
+                    "widths": [
+                        245,
+                        245
+                    ],
+                    "heights": [
+                        "auto",
+                        "auto"
+                    ]
+                },
+                "marginBottom": 0,
+                "background": "white",
+                "marginTop": 15,
+                "width": "100%",
+                "border": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "style": [
+                    "html-table"
+                ]
+            },
+            {
+                "nodeName": "TABLE",
+                "table": {
+                    "body": [
+                        [
+                            {
+                                "text": "To:",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "width": 188,
+                                "fontSize": 12,
+                                "color": "lightgray",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "From:",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "width": 188,
+                                "fontSize": 12,
+                                "color": "lightgray",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "nodeName": "TD",
+                                "stack": [
+                                    {
+                                        "nodeName": "UL",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "marginBottom": 5,
+                                        "marginLeft": 5,
+                                        "listStyleType": "none",
+                                        "alignment": "left",
+                                        "style": [
+                                            "html-ul",
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ],
+                                        "ul": [
+                                            {
+                                                "text": "${TO_NAME}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "alignment": "left",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            },
+                                            {
+                                                "text": "${TO_PHONE}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "alignment": "left",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            },
+                                            {
+                                                "text": "${TO_EMAIL}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "alignment": "left",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            }
+                                        ],
+                                        "type": "none"
+                                    },
+                                    {
+                                        "text": "  ",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "width": 38,
+                                        "style": [
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ]
+                                    }
+                                ],
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "fillColor": "white",
+                                "width": 38,
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "nodeName": "TD",
+                                "stack": [
+                                    {
+                                        "nodeName": "UL",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "marginBottom": 5,
+                                        "marginLeft": 5,
+                                        "listStyleType": "none",
+                                        "alignment": "left",
+                                        "style": [
+                                            "html-ul",
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ],
+                                        "ul": [
+                                            {
+                                                "text": "${FROM_NAME}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "alignment": "left",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            },
+                                            {
+                                                "text": "${FROM_PHONE}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "alignment": "left",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            },
+                                            {
+                                                "text": "${FROM_EMAIL}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "alignment": "left",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            }
+                                        ],
+                                        "type": "none"
+                                    },
+                                    {
+                                        "text": "  ",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "width": 38,
+                                        "style": [
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ]
+                                    }
+                                ],
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "fillColor": "white",
+                                "width": 38,
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "text": "Address:",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "width": 75,
+                                "fontSize": 12,
+                                "color": "lightgray",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "Address:",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "width": 75,
+                                "fontSize": 12,
+                                "color": "lightgray",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "nodeName": "TD",
+                                "stack": [
+                                    {
+                                        "nodeName": "UL",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "marginBottom": 5,
+                                        "marginLeft": 5,
+                                        "listStyleType": "none",
+                                        "alignment": "left",
+                                        "style": [
+                                            "html-ul",
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ],
+                                        "ul": [
+                                            {
+                                                "text": "${TO_ADDRESS}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "alignment": "left",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            }
+                                        ],
+                                        "type": "none"
+                                    },
+                                    {
+                                        "text": "  ",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "width": 75,
+                                        "style": [
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ]
+                                    }
+                                ],
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "fillColor": "white",
+                                "width": 75,
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "nodeName": "TD",
+                                "stack": [
+                                    {
+                                        "nodeName": "UL",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "marginBottom": 5,
+                                        "marginLeft": 5,
+                                        "listStyleType": "none",
+                                        "alignment": "left",
+                                        "style": [
+                                            "html-ul",
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ],
+                                        "ul": [
+                                            {
+                                                "text": "${FROM_ADDRESS}",
+                                                "nodeName": "LI",
+                                                "background": "white",
+                                                "border": [
+                                                    false,
+                                                    false,
+                                                    false,
+                                                    false
+                                                ],
+                                                "fillColor": "white",
+                                                "listStyleType": "none",
+                                                "alignment": "left",
+                                                "style": [
+                                                    "html-li",
+                                                    "html-ul",
+                                                    "html-td",
+                                                    "html-tr",
+                                                    "html-tbody",
+                                                    "html-table"
+                                                ]
+                                            }
+                                        ],
+                                        "type": "none"
+                                    },
+                                    {
+                                        "text": "  ",
+                                        "background": "white",
+                                        "border": [
+                                            false,
+                                            false,
+                                            false,
+                                            false
+                                        ],
+                                        "fillColor": "white",
+                                        "width": 75,
+                                        "style": [
+                                            "html-td",
+                                            "html-tr",
+                                            "html-tbody",
+                                            "html-table"
+                                        ]
+                                    }
+                                ],
+                                "background": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "fillColor": "white",
+                                "width": 75,
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ]
+                    ],
+                    "widths": [
+                        188,
+                        188
+                    ],
+                    "heights": [
+                        "auto",
+                        "auto",
+                        "auto",
+                        "auto"
+                    ]
+                },
+                "marginBottom": 5,
+                "background": "white",
+                "marginTop": 0,
+                "border": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "style": [
+                    "html-table"
+                ]
+            },
+            {
+                "nodeName": "HR",
+                "margin": [
+                    0,
+                    12,
+                    0,
+                    12
+                ],
+                "canvas": [
+                    {
+                        "type": "line",
+                        "x1": 0,
+                        "y1": 0,
+                        "x2": 514,
+                        "y2": 0,
+                        "lineWidth": 0.5,
+                        "lineColor": "#000000"
+                    }
+                ]
+            },
+            {
+                "nodeName": "TABLE",
+                "marginBottom": 5,
+                "background": "white",
+                "marginTop": 30,
+                "width": "100%",
+                "border": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "style": [
+                    "html-table"
+                ],
+                "table": {
+                    "body": [
+                        [
+                            {
+                                "text": "QTY",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "width": 23,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "center",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "ITEM",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "width": 226,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "center",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "UNIT PRICE",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "center",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "TAX%",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "center",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "PRICE",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "center",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ],
+                        {
+                            "CUSTOM_FIELD": "${TABLE_ROWS}"
+                        },
+                        [
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "Amount",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "right",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "$${AMOUNT}",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "center",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "Total Tax",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "right",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    true
+                                ],
+                                "borderColor": [
+                                    "#000000",
+                                    "#000000",
+                                    "#000000",
+                                    "black"
+                                ],
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "$${TOTAL_TAX}",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "center",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    true
+                                ],
+                                "borderColor": [
+                                    "#000000",
+                                    "#000000",
+                                    "#000000",
+                                    "black"
+                                ],
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "center",
+                                "fillColor": "white",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "TOTAL",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "right",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            },
+                            {
+                                "text": "$${TOTAL}",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "center",
+                                "width": 75,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ]
+                    ],
+                    "widths": [
+                        23,
+                        226,
+                        75,
+                        75,
+                        75
+                    ],
+                    "heights": [
+                        "auto",
+                        "auto",
+                        "auto",
+                        "auto",
+                        "${ADD_ROW_HEIGHTS}"
+                    ]
+                }
+            },
+            {
+                "nodeName": "TABLE",
+                "marginBottom": 5,
+                "background": "white",
+                "marginTop": 8,
+                "width": "100%",
+                "border": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "style": [
+                    "html-table"
+                ],
+                "table": {
+                    "body": [
+                        [
+                            {
+                                "text": "NOTES:",
+                                "nodeName": "TH",
+                                "background": "white",
+                                "width": 512,
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "bold": true,
+                                "fillColor": "white",
+                                "alignment": "left",
+                                "style": [
+                                    "html-th",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "text": "${NOTES}",
+                                "nodeName": "TD",
+                                "background": "white",
+                                "alignment": "left",
+                                "border": [
+                                    false,
+                                    false,
+                                    false,
+                                    false
+                                ],
+                                "style": [
+                                    "html-td",
+                                    "html-tr",
+                                    "html-tbody",
+                                    "html-table"
+                                ]
+                            }
+                        ]
+                    ],
+                    "widths": [
+                        512
+                    ],
+                    "heights": [
+                        "auto",
+                        "auto"
+                    ]
+                }
+            }
+        ],
+        "styles": {
+            "green": {
+                "color": "green"
+            }
+        }
+    }
+}

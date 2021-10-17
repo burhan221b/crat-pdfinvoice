@@ -1,39 +1,26 @@
 function convertJSONValues(template: string, data: any) {
-    console.log(template)
-    //! Still working on it
     // const TABLE_ROWS = createTableRows(template, data.items);
-    // // template.replace('${LOGO}', data.logo)// Need to add logo to state
-    // template.replace('${DATE}', data.logo)
-    // template.replace('${TO_NAME}', data.logo)
-    // template.replace('${TO_PHONE}', data.logo)
-    // template.replace('${TO_EMAIL}', data.logo)
-    // template.replace('${FROM_NAME}', data.logo)
-    // template.replace('${FROM_PHONE}', data.logo)
-    // template.replace('${FROM_EMAIL}', data.logo)
-    // template.replace('${TO_ADDRESS}', data.logo)
-    // template.replace('${FROM_ADDRESS}', data.logo)
-    // template.replace('${TABLE_ROWS}', TABLE_ROWS)
-    // template.replace('${AMOUNT}', data.logo)
-    // template.replace('${TOTAL_TAX}', data.logo)
-    // template.replace('${TOTAL}', data.logo)
-    // template.replace('${NOTES}', data.logo)
+    const [TABLE_ROWS, HEIGHT] = createPDFmakeTableRows(template, data.items);
+    const [AMOUNT, TAX, TOTAL] = handleTotals(data.items);
+    template = template.replace('\n', "");
+    template = template.replace('${LOGO}', (data.logo || ""));// Need to add logo to state
+    template = template.replace('${DATE}', (data.date || ""));
+    template = template.replace('${TO_NAME}', (data.to_name || ""));
+    template = template.replace('${TO_PHONE}', (data.to_phone || ""));
+    template = template.replace('${TO_EMAIL}', (data.to_email || ""));
+    template = template.replace('${FROM_NAME}', (data.from_name || ""));
+    template = template.replace('${FROM_PHONE}', (data.from_email || ""));
+    template = template.replace('${FROM_EMAIL}', (data.from_email || ""));
+    template = template.replace('${TO_ADDRESS}', (data.to_address || ""));
+    template = template.replace('${FROM_ADDRESS}', (data.from_address || ""));
+    template = template.replace('{"CUSTOM_FIELD":"${TABLE_ROWS}"},', TABLE_ROWS || "");
+    template = template.replace('${AMOUNT}', (AMOUNT).toString());
+    template = template.replace('${TOTAL_TAX}', (TAX).toString());
+    template = template.replace('${TOTAL}', (TOTAL).toString());
+    template = template.replace('${NOTES}', (data.form_notes || ""));
+    template = template.replace('${ADD_ROW_HEIGHTS}', (HEIGHT || ""));
+    return template;
 }
-
-
-// function validateMath(qty: number, unitpirce: number, tax: number, amount: number, name: string) {
-//     const values = { qty: qty || 1, unitprice: unitpirce || 0, tax: tax || 0, amount: amount || 0 };
-//     switch (name) {
-//         case "qty":updateValues(values, "qty");
-//             break;
-//         case "unitprice":updateValues(values, "unitprice");
-//             break;
-//         case "tax":updateValues(values, "tax");
-//             break;
-//         case "amount":updateValues(values, "amount");
-//             break;
-//     }
-//     return
-// }
 
 function validateMath(values: any, name: string) {
     values = { ...values, qty: values.qty && parseFloat(values.qty) > 0 ? parseFloat(values.qty) : 1, unitprice: parseFloat(values.unitprice) || 0, tax: parseFloat(values.tax) || 0, amount: parseFloat(values.amount) || 0 };
@@ -47,13 +34,11 @@ function validateMath(values: any, name: string) {
         case "amount": updateUnitPrice(values);
             break;
     }
-    console.log("TESTING VALUES", values)
     return values;
 }
 
 function updateAmount(values: any) {
     // (qty * unitprice)  + ((qty * unitprice) * (tax/100))
-
     values.amount = ((values.qty * values.unitprice) + ((values.qty * values.unitprice) * (values.tax / 100))).toFixed(2);
 }
 
@@ -73,7 +58,94 @@ function handleTotals(items: any) {
         TAX += parseFloat((((values.qty * values.unitprice) * (values.tax / 100))).toFixed(2));
         TOTAL += parseFloat((values.amount).toFixed(2));
     });
-    return [AMOUNT, TAX, TOTAL];
+    return [parseFloat(AMOUNT.toFixed(2)), parseFloat(TAX.toFixed(2)), parseFloat(TOTAL.toFixed(2))];
+}
+
+//! For HTML to PDFmake
+function createTableRows(template: string, items: any) {
+    const ROWS = [''];
+    let TOTAL_ROWS = '';
+    items.forEach((o: any) => {
+        ROWS.push("<tr>");
+        const qty = `<td>${o.qty || "1"}</td>`;
+        const item = `<td>${o.item || ""}</td>`;
+        const unitprice = `<td>${o.unitprice || "0"}</td>`;
+        const tax = `<td>${o.tax || "0"}</td>`;
+        const amount = `<td>${o.amount || "0"}</td>`;
+        ROWS.push(qty, item, unitprice, tax, amount);
+        ROWS.push("</tr>");
+    })
+    TOTAL_ROWS = ROWS.join('');
+    return TOTAL_ROWS;
+}
+
+//! For regular PDFmake
+function createPDFmakeTableRows(template: string, items: any) {
+    let ROWS_STRING = '';
+    const HEIGHT: string[] = [];
+    items.forEach((o: any) => {
+        HEIGHT.push("auto");
+        ROWS_STRING += JSON.stringify([
+            {
+                "text": `${o.qty || "1"}`,
+                "nodeName": "TD",
+                "background": "white",
+                "style": [
+                    "html-td",
+                    "html-tr",
+                    "html-tbody",
+                    "html-table"
+                ]
+            },
+            {
+                "text": `${o.item || ""}`,
+                "nodeName": "TD",
+                "background": "white",
+                "style": [
+                    "html-td",
+                    "html-tr",
+                    "html-tbody",
+                    "html-table"
+                ]
+            },
+            {
+                "text": `${o.unitprice || "0"}`,
+                "nodeName": "TD",
+                "background": "white",
+                "style": [
+                    "html-td",
+                    "html-tr",
+                    "html-tbody",
+                    "html-table"
+                ]
+            },
+            {
+                "text": `${o.tax || "0"}`,
+                "nodeName": "TD",
+                "background": "white",
+                "style": [
+                    "html-td",
+                    "html-tr",
+                    "html-tbody",
+                    "html-table"
+                ]
+            },
+            {
+                "text": `${o.amount || "0"}`,
+                "nodeName": "TD",
+                "background": "white",
+                "style": [
+                    "html-td",
+                    "html-tr",
+                    "html-tbody",
+                    "html-table"
+                ]
+            }
+        ]);
+        ROWS_STRING += ",";
+    })
+
+    return [ROWS_STRING, HEIGHT.join('')];
 }
 
 export { convertJSONValues, validateMath, handleTotals };

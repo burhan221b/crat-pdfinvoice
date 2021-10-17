@@ -23,7 +23,8 @@ export interface PassingStateProps {
     index?: number,
     id?: string,
     handleDeleteBtn?: any,
-    updateRow?: any
+    updateRow?: any,
+    handleDirectStateUpdate?: any
 }
 
 export interface TableTotalProps {
@@ -156,7 +157,7 @@ const TableRows = (props: PassingStateProps) => {
 
     return (<>
         {createTableRows()}
-        <button type="button" onClick={() => setRows([...rows, { id: uuidv4() }])} className="add-row">Add &#10010;</button>
+        <button type="button" onClick={() => setRows([...rows, { id: uuidv4(), qty: 1, item: "", unitprice: 0, tax: 0, amount: 0 }])} className="add-row">Add &#10010;</button>
         {createTableTotal()}
 
     </>)
@@ -164,9 +165,12 @@ const TableRows = (props: PassingStateProps) => {
 
 
 const FormTable = (props: PassingStateProps) => {
-    const { state, handleListChange, handleDeleteRow } = props;
+    const { state, handleListChange, handleDeleteRow, handleDirectStateUpdate } = props;
     useEffect(() => {
-        updateDate();
+        const dt = new Date();
+        handleDirectStateUpdate("date", dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate());
+        updateDate(dt);
+
         return () => {
 
         }
@@ -194,9 +198,10 @@ const FormTable = (props: PassingStateProps) => {
 
 Invoice.Form = (props: InvoiceFormProps) => {
     const { customStyles } = props
-    const { state, handleChange, handleListChange, handleDeleteRow, handleSubmit } = UseForm({ items: [] });
+    const { state, handleChange, handleListChange, handleDeleteRow, handleSubmit, handleDirectStateUpdate } = UseForm({ items: [] });
     return (
-        <form onSubmit={(e) => handleSubmit(e, state)} className="invoice-form" style={customStyles}>
+        // <form onSubmit={(e) => handleSubmit(e, state)} className="invoice-form" style={customStyles}>
+        <form className="invoice-form" style={customStyles}>
             {/* Logo */}
             <img alt="" className="invoice-logo" src="" />
             <div className="invoice-formality">
@@ -235,14 +240,15 @@ Invoice.Form = (props: InvoiceFormProps) => {
                 </div>
             </div>
             {/* Table  */}
-            {Object.keys(state).length > 0 && <FormTable state={state} handleListChange={handleListChange} handleDeleteRow={handleDeleteRow} />}
+            {Object.keys(state).length > 0 && <FormTable state={state} handleListChange={handleListChange} handleDeleteRow={handleDeleteRow} handleDirectStateUpdate={handleDirectStateUpdate} />}
             {/* Notes */}
             <div className="form-notes">
                 <h4 className="form-h-title form-notes-title">NOTES:</h4>
                 <textarea onChange={handleChange} name="form_notes" id="" cols={30} rows={10} className="form-notes-textarea" />
             </div>
             <div className="form-submit">
-                <button type="submit" className="form-submit-btn">Create PDF Invoice</button>
+                <button type="button" onClick={(e) => handleSubmit(e, state, "open")} className="form-submit-btn">Create PDF Invoice & Open New Tab</button>
+                <button type="button" onClick={(e) => handleSubmit(e, state, "download")} className="form-submit-btn">Create PDF Invoice & Download</button>
             </div>
         </form>
     )
