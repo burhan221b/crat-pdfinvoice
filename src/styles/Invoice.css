@@ -69,8 +69,7 @@ textarea {
 }
 
 .form-h-title {
-    text-decoration: underline;
-    font-weight: 900;
+    text-align: none;
 }
 
 .form-table {
@@ -169,10 +168,44 @@ textarea {
 
 #btn-deleterow {
     background-color: rgb(249, 65, 65);
+    width: 25px;
 }
 
 .form-submit-btn {
     background-color: rgb(0, 136, 255);
+}
+
+.fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    opacity: 0;
+    animation-name: fadeOutOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 200ms;
+}
+@keyframes fadeOutOpacity {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /**
@@ -196,6 +229,11 @@ textarea {
 }
 
 @media all and (max-width: 480px) {
+    .form-h-title {
+        text-decoration: underline;
+        font-weight: 900;
+        text-align: center;
+    }
     .invoice-form {
         grid-template-areas:
             "logo logo label label"
@@ -268,6 +306,13 @@ textarea {
 
     .delete-td {
         width: 10px;
+    }
+
+    .TOTAL {
+        border-top: 1px solid black;
+    }
+    #TOTAL {
+        border: 1px solid black;
     }
 }
 

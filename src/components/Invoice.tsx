@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactElement, useRef, useEffect, FormEvent, ChangeEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { updateDate } from '../events/eventListeners';
+import { deleteRowFadeOut, updateDate } from '../events/eventListeners';
 import "../styles/Invoice.css";
 import UseForm from '../utils/UseForm';
 import { handleTotals } from '../utils/utils';
@@ -93,8 +93,8 @@ const TableTotalRow = (props: TableTotalProps) => {
             <td className="qty-td"></td>
             <td className="item-td"></td>
             <td className="unitprice-td"></td>
-            <td className="tax-td"><strong>TOTAL</strong></td>
-            <td className="amount-td">{TOTAL}</td>
+            <td className="tax-td TOTAL"><strong>TOTAL</strong></td>
+            <td className="amount-td TOTAL" id="TOTAL">{TOTAL}</td>
             <td className="delete-td"></td>
         </tr>
     </>)
@@ -102,7 +102,7 @@ const TableTotalRow = (props: TableTotalProps) => {
 
 const TableRow = (props: PassingStateProps) => {
     const { row, index, updateRow, handleDeleteBtn, id } = props;
-    return (<tr key={index} className="form-table-tr">
+    return (<tr key={index} id={id} className="fade-in form-table-tr">
         <td className="qty-td"><input onChange={(e) => updateRow(e, id)} name="qty" value={row.qty} type="number" className="input-qty" min="1" /></td>
         <td className="item-td"><input onChange={(e) => updateRow(e, id)} name="item" value={row.item} type="text" className="input-item" /></td>
         <td className="unitprice-td"><input onChange={(e) => updateRow(e, id)} name="unitprice" value={row.unitprice} type="number" className="input-unitprice" /></td>
@@ -126,8 +126,9 @@ const TableRows = (props: PassingStateProps) => {
         handleListChange(e, id)
     }
 
-    const handleDeleteBtn = (id: string) => {
+    const handleDeleteBtn = async (id: string) => {
         let temp = rows.filter((o: any) => o.id !== id);
+        await deleteRowFadeOut(id);
         handleDeleteRow(id);
         setRows(temp);
     }

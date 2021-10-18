@@ -1,4 +1,5 @@
 import { ChangeEvent, ChangeEventHandler, DetailedHTMLProps, TextareaHTMLAttributes, useEffect, useState } from "react";
+import { deleteRowFadeOut } from "../events/eventListeners";
 import basic_invoice_template from '../json/basic_invoice_template.json';
 import template2 from "../json/template2.json"
 import { handlePDFDownload } from "./handlePDFDownload";
