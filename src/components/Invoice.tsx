@@ -108,7 +108,7 @@ const TableRow = (props: PassingStateProps) => {
         <td className="unitprice-td"><input onChange={(e) => updateRow(e, id)} name="unitprice" value={row.unitprice} type="number" className="input-unitprice" /></td>
         <td className="tax-td"><input onChange={(e) => updateRow(e, id)} name="tax" value={row.tax} type="number" className="input-tax" /></td>
         <td className="amount-td"><input onChange={(e) => updateRow(e, id)} name="amount" value={row.amount} type="number" className="input-amount" /></td>
-        <td className="delete-td"><button onClick={() => handleDeleteBtn(id)} name="delete" type="button">&#10005;</button></td>
+        <td className="delete-td"><button onClick={() => handleDeleteBtn(id)} name="delete" type="button" className="btn" id="btn-deleterow">&#10005;</button></td>
     </tr>)
 }
 
@@ -157,7 +157,7 @@ const TableRows = (props: PassingStateProps) => {
 
     return (<>
         {createTableRows()}
-        <button type="button" onClick={() => setRows([...rows, { id: uuidv4(), qty: 1, item: "", unitprice: 0, tax: 0, amount: 0 }])} className="add-row">Add &#10010;</button>
+        <button type="button" onClick={() => setRows([...rows, { id: uuidv4(), qty: 1, item: "", unitprice: 0, tax: 0, amount: 0 }])} className="btn add-row" id="btn-addrow">Add &#10010;</button>
         {createTableTotal()}
 
     </>)
@@ -247,8 +247,8 @@ Invoice.Form = (props: InvoiceFormProps) => {
                 <textarea onChange={handleChange} name="form_notes" id="" cols={30} rows={10} className="form-notes-textarea" />
             </div>
             <div className="form-submit">
-                <button type="button" onClick={(e) => handleSubmit(e, state, "open")} className="form-submit-btn">Create PDF Invoice & Open New Tab</button>
-                <button type="button" onClick={(e) => handleSubmit(e, state, "download")} className="form-submit-btn">Create PDF Invoice & Download</button>
+                <button type="button" onClick={(e) => handleSubmit(e, state, "open")} className="btn form-submit-btn" id="btn-opentab">Open New Tab</button>
+                <button type="button" onClick={(e) => handleSubmit(e, state, "download")} className="btn form-submit-btn" id="btn-download">Download</button>
             </div>
         </form>
     )

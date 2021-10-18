@@ -1,3 +1,14 @@
+html {
+    /* Customized Style below */
+    background-color: #9b9da7;
+}
+
+input,
+textarea {
+    border: transparent;
+    border-radius: 3px;
+}
+
 .invoice {
 }
 
@@ -55,6 +66,11 @@
 .form-table-div {
     grid-area: table;
     margin-top: 40px;
+}
+
+.form-h-title {
+    text-decoration: underline;
+    font-weight: 900;
 }
 
 .form-table {
@@ -132,6 +148,31 @@
 
 .form-submit {
     grid-area: submit;
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn {
+    border: transparent;
+    border-radius: 3px;
+    padding: 0.3rem;
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+#btn-addrow {
+    background-color: rgb(139, 220, 17);
+}
+
+#btn-deleterow {
+    background-color: rgb(249, 65, 65);
+}
+
+.form-submit-btn {
+    background-color: rgb(0, 136, 255);
 }
 
 /**
