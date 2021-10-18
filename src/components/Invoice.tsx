@@ -2,7 +2,7 @@ import React, { CSSProperties, ReactElement, useRef, useEffect, FormEvent, Chang
 import { v4 as uuidv4 } from 'uuid';
 import { deleteRowFadeOut, updateDate } from '../events/eventListeners';
 import "../styles/Invoice.css";
-import UseForm from '../utils/UseForm';
+import UseForm from '../utils/useForm';
 import { handleTotals } from '../utils/utils';
 
 export interface InvoiceProps {
