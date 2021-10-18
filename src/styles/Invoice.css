@@ -152,6 +152,9 @@
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
+}
+
+@media all and (max-width: 480px) {
     .invoice-form {
         grid-template-areas:
             "logo logo label label"
@@ -163,9 +166,68 @@
     .form-info-container {
         justify-content: center;
     }
-}
 
-@media all and (max-width: 480px) {
+    .form-table {
+        /* width: 100%; */
+    }
+
+    .form-table-tr {
+        text-align: center;
+    }
+
+    .qty-th,
+    .input-qty {
+        width: 36px;
+    }
+
+    .item-th,
+    .input-item {
+        width: 75px !important;
+    }
+
+    .unitprice-th,
+    .input-unitprice {
+        width: 50px;
+    }
+
+    .tax-th,
+    .input-tax {
+        width: 50px;
+    }
+
+    .amount-th,
+    .input-amount {
+        width: 50px;
+    }
+
+    .delete-th,
+    .input-delete {
+        width: 10px;
+    }
+
+    .qty-td {
+        width: 36px;
+    }
+
+    .item-td {
+        width: 200px;
+    }
+
+    .unitprice-td {
+        width: 100px;
+    }
+
+    .tax-td {
+        width: 100px;
+    }
+
+    .amount-td {
+        width: 100px;
+    }
+
+    .delete-td {
+        width: 10px;
+    }
 }
 
 /* Portrait */
