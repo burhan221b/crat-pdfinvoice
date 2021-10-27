@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap");
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+/* Main Styles */
+.invoice {
+    width: 100%;
+    max-width: 900px;
+    min-width: 414px;
+    margin: 0 auto;
+}
+.invoice-form {
+    margin: 1rem 1rem;
+}
+.invoice-form .form-table {
+    font-size: 0.5em;
+    text-align: center;
+    width: 100%;
+}
+.invoice-form-header {
+    display: flex;
+    justify-content: space-between;
+}
+.invoice-logo {
+    width: 150px;
+    grid-area: logo;
+}
+.invoice-formality {
+    text-align: left;
+}
+.container-box {
+    box-shadow: 0px 0px 4px 0px gray;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.form-to-container input,
+.form-from-container input {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-table-tr {
+    text-align: center;
+}
+
+.qty-th,
+.input-qty {
+    width: 25px;
+}
+
+.item-th,
+.input-item {
+    /* width: 50px; */
+    width: 92%;
+}
+
+.unitprice-th,
+.input-unitprice {
+    width: 50px;
+}
+
+.tax-th,
+.input-tax {
+    width: 50px;
+}
+
+.amount-th,
+.input-amount {
+    width: 50px;
+}
+
+.delete-th,
+.input-delete {
+    width: 10px;
+}
+
+.qty-td {
+    width: 36px;
+}
+
+.item-td {
+    width: 200px;
+}
+
+.unitprice-td {
+    width: 100px;
+}
+
+.tax-td {
+    width: 100px;
+}
+
+.amount-td {
+    width: 100px;
+}
+
+.delete-td {
+    width: 10px;
+}
+
+.form-table-tr-headers {
+    text-align: center;
+}
+
+.last-tr {
+    font-size: 1rem;
+}
+.TOTAL {
+    border-top: 1px solid black;
+}
+#TOTAL {
+    border: 1px solid black;
+}
+
+.form-notes .form-notes-textarea {
+    width: 100%;
+}
+
+/* Buttons */
+.btn {
+    border: transparent;
+    border-radius: 3px;
+    padding: 0.3rem;
+    color: #000;
+    font-weight: 500;
+}
+
+#btn-addrow {
+    background-color: rgb(139, 220, 17);
+}
+
+#btn-deleterow {
+    background-color: rgb(249, 65, 65);
+    width: 25px;
+    font-weight: bold;
+}
+.form-submit {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form-submit-btn {
+    /* background-color: rgb(0, 136, 255); */
+    background-color: rgb(111 189 255);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    opacity: 0;
+    animation-name: fadeOutOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 200ms;
+}
+@keyframes fadeOutOpacity {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/**
+ * Basic CSS Media Query Template
+ * ------------------------------------------
+ *  Responsive Grid Media Queries - 1280, 1024, 768, 480
+ *   1280-1024   - desktop (default grid)
+ *   1024-768    - tablet landscape
+ *   768-480     - tablet 
+ *   480-less    - phone landscape & smaller
+ * --------------------------------------------
+ */
+
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+}
+@media all and (max-width: 480px) {
+}
+/* Portrait */
+@media screen and (orientation: portrait) {
+    /* Portrait styles here */
+}
+/* Landscape */
+@media screen and (orientation: landscape) {
+    /* Landscape styles here */
+}
+
+/* CSS for iPhone, iPad, and Retina Displays */
+
+/* Non-Retina */
+@media screen and (-webkit-max-device-pixel-ratio: 1) {
+}
+
+/* Retina */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+}
+
+/* iPhone Portrait */
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+}
+
+/* iPhone Landscape */
+@media screen and (max-device-width: 480px) and (orientation: landscape) {
+}
+
+/* iPad Portrait */
+@media screen and (min-device-width: 481px) and (orientation: portrait) {
+}
+
+/* iPad Landscape */
+@media screen and (min-device-width: 481px) and (orientation: landscape) {
+}

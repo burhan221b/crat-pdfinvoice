@@ -1,7 +1,8 @@
 import React, { CSSProperties, ReactElement, useRef, useEffect, FormEvent, ChangeEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { deleteRowFadeOut, updateDate } from '../events/eventListeners';
-import "../styles/Invoice.css";
+// import "../styles/Invoice.css";
+import "../styles/InvoiceV1.css";
 import UseForm from '../utils/useForm';
 import { handleTotals } from '../utils/utils';
 
@@ -73,7 +74,7 @@ const Invoice = (props: InvoiceProps) => {
 
 const TableTotalRow = (props: TableTotalProps) => {
     const { AMOUNT, TAX, TOTAL } = props;
-    return (<><tr className="form-table-tr">
+    return (<><tr className="last-tr form-table-tr">
         <td className="qty-td"></td>
         <td className="item-td"></td>
         <td className="unitprice-td"></td>
@@ -81,7 +82,7 @@ const TableTotalRow = (props: TableTotalProps) => {
         <td className="amount-td">{AMOUNT}</td>
         <td className="delete-td"></td>
     </tr>
-        <tr className="form-table-tr">
+        <tr className="last-tr form-table-tr">
             <td className="qty-td"></td>
             <td className="item-td"></td>
             <td className="unitprice-td"></td>
@@ -89,7 +90,7 @@ const TableTotalRow = (props: TableTotalProps) => {
             <td className="amount-td">{TAX}</td>
             <td className="delete-td"></td>
         </tr>
-        <tr className="form-table-tr">
+        <tr className="last-tr form-table-tr">
             <td className="qty-td"></td>
             <td className="item-td"></td>
             <td className="unitprice-td"></td>
@@ -177,7 +178,7 @@ const FormTable = (props: PassingStateProps) => {
         }
     }, [])
     return (
-        <div className="form-table-div">
+        <div className="container-box form-table-div">
             <table className="form-table">
                 <thead>
                     <tr className="form-table-tr form-table-tr-headers">
@@ -203,15 +204,17 @@ Invoice.Form = (props: InvoiceFormProps) => {
     return (
         // <form onSubmit={(e) => handleSubmit(e, state)} className="invoice-form" style={customStyles}>
         <form className="invoice-form" style={customStyles}>
-            {/* Logo */}
-            <img alt="" className="invoice-logo" src="" />
-            <div className="invoice-formality">
-                <h1 className="invoice-label">INVOICE</h1>
-                {/* Date */}
-                <input onChange={handleChange} name="date" id="datePicker" type="date" className="invoice-date" />
+            <div className="container-box invoice-form-header">
+                {/* Logo */}
+                <img alt="" className="invoice-logo" src="https://source.unsplash.com/random/200x150" />
+                <div className="invoice-formality">
+                    <h1 className="invoice-label">INVOICE</h1>
+                    {/* Date */}
+                    <input onChange={handleChange} name="date" id="datePicker" type="date" className="invoice-date" />
+                </div>
             </div>
             <div className="form-info-container">
-                <div className="form-to-container">
+                <div className="container-box form-to-container">
                     {/* To Info */}
                     <h4 className="form-h-title">To:</h4>
                     <div className="form-to-info-container">
@@ -225,7 +228,7 @@ Invoice.Form = (props: InvoiceFormProps) => {
                         <input onChange={handleChange} name="to_address" value={state.to_address} type="text" className="form-to-address" />
                     </div>
                 </div>
-                <div className="form-from-container">
+                <div className="container-box form-from-container">
                     <h4 className="form-h-title">From:</h4>
                     {/* From Info */}
                     <div className="form-from-info-container">
@@ -243,7 +246,7 @@ Invoice.Form = (props: InvoiceFormProps) => {
             {/* Table  */}
             {Object.keys(state).length > 0 && <FormTable state={state} handleListChange={handleListChange} handleDeleteRow={handleDeleteRow} handleDirectStateUpdate={handleDirectStateUpdate} />}
             {/* Notes */}
-            <div className="form-notes">
+            <div className="container-box form-notes">
                 <h4 className="form-h-title form-notes-title">NOTES:</h4>
                 <textarea onChange={handleChange} name="form_notes" id="" cols={30} rows={10} className="form-notes-textarea" />
             </div>
