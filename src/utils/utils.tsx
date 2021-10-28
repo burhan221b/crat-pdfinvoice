@@ -23,7 +23,7 @@ function convertJSONValues(template: string, data: any) {
 }
 
 function validateMath(values: any, name: string) {
-    values = { ...values, qty: values.qty && parseFloat(values.qty) > 0 ? parseFloat(values.qty) : null, unitprice: parseFloat(values.unitprice) || null, tax: parseFloat(values.tax) || null, amount: parseFloat(values.amount) || null };
+    values = { ...values, qty: values.qty && parseFloat(values.qty) > 0 ? parseFloat(values.qty) : 1, unitprice: parseFloat(values.unitprice) || null, tax: parseFloat(values.tax) || null, amount: parseFloat(values.amount) || null };
     switch (name) {
         case "qty": updateAmount(values);
             break;
@@ -38,13 +38,15 @@ function validateMath(values: any, name: string) {
 }
 
 function updateAmount(values: any) {
+    const qty = values.qty || 1;
     // (qty * unitprice)  + ((qty * unitprice) * (tax/100))
-    values.amount = ((values.qty * values.unitprice) + ((values.qty * values.unitprice) * (values.tax / 100))).toFixed(2);
+    values.amount = ((qty * values.unitprice) + ((qty * values.unitprice) * (values.tax / 100))).toFixed(2);
 }
 
 function updateUnitPrice(values: any) {
+    const qty = values.qty || 1;
     // (amount/qty) /(1+tax)
-    values.unitprice = ((values.amount / values.qty) / (1 + (values.tax / 100))).toFixed(2);
+    values.unitprice = ((values.amount / qty) / (1 + (values.tax / 100))).toFixed(2);
 }
 
 

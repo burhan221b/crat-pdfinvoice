@@ -7,7 +7,7 @@ export interface VersionProps {
 
 const Version: React.FunctionComponent<VersionProps> = () => {
     return (
-        <div className="version">Version 1.4.1</div>
+        <div className="version">Version 1.4.2</div>
     );
 }
 
