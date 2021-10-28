@@ -104,8 +104,8 @@ const TableTotalRow = (props: TableTotalProps) => {
 const TableRow = (props: PassingStateProps) => {
     const { row, index, updateRow, handleDeleteBtn, id } = props;
     return (<tr key={index} id={id} className="fade-in form-table-tr">
-        <td className="qty-td"><input onChange={(e) => updateRow(e, id)} name="qty" value={row.qty} type="number" className="input-qty" min="1" /></td>
-        <td className="item-td"><input onChange={(e) => updateRow(e, id)} name="item" value={row.item} type="text" className="input-item" /></td>
+        <td className="qty-td"><input onChange={(e) => updateRow(e, id)} name="qty" value={row.qty} type="number" className="input-qty" /></td>
+        <td className="item-td"><input onChange={(e) => updateRow(e, id)} name="item" value={row.item} type="text" className="input-item" placeholder="Item Name Here" /></td>
         <td className="unitprice-td"><input onChange={(e) => updateRow(e, id)} name="unitprice" value={row.unitprice} type="number" className="input-unitprice" /></td>
         <td className="tax-td"><input onChange={(e) => updateRow(e, id)} name="tax" value={row.tax} type="number" className="input-tax" /></td>
         <td className="amount-td"><input onChange={(e) => updateRow(e, id)} name="amount" value={row.amount} type="number" className="input-amount" /></td>

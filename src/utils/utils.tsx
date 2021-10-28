@@ -23,7 +23,7 @@ function convertJSONValues(template: string, data: any) {
 }
 
 function validateMath(values: any, name: string) {
-    values = { ...values, qty: values.qty && parseFloat(values.qty) > 0 ? parseFloat(values.qty) : 1, unitprice: parseFloat(values.unitprice) || 0, tax: parseFloat(values.tax) || 0, amount: parseFloat(values.amount) || 0 };
+    values = { ...values, qty: values.qty && parseFloat(values.qty) > 0 ? parseFloat(values.qty) : null, unitprice: parseFloat(values.unitprice) || null, tax: parseFloat(values.tax) || null, amount: parseFloat(values.amount) || null };
     switch (name) {
         case "qty": updateAmount(values);
             break;
