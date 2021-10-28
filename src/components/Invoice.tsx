@@ -79,7 +79,7 @@ const TableTotalRow = (props: TableTotalProps) => {
         <td className="item-td"></td>
         <td className="unitprice-td"></td>
         <td className="tax-td"><strong>AMOUNT</strong></td>
-        <td className="amount-td">{AMOUNT}</td>
+        <td className="amount-td" id="AMOUNT">{AMOUNT}</td>
         <td className="delete-td"></td>
     </tr>
         <tr className="last-tr form-table-tr">
@@ -87,7 +87,7 @@ const TableTotalRow = (props: TableTotalProps) => {
             <td className="item-td"></td>
             <td className="unitprice-td"></td>
             <td className="tax-td"><strong>TAX</strong></td>
-            <td className="amount-td">{TAX}</td>
+            <td className="amount-td" id="TAX">{TAX}</td>
             <td className="delete-td"></td>
         </tr>
         <tr className="last-tr form-table-tr">

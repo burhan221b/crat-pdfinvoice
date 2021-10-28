@@ -105,6 +105,11 @@ body {
 .last-tr {
     font-size: 1rem;
 }
+#TAX,
+#TOTAL,
+#AMOUNT {
+    text-align: right;
+}
 .TOTAL {
     border-top: 1px solid black;
 }
