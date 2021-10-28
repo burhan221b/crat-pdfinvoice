@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/crat-pdfinvoice/static/css/main.7ae9ab35.chunk.css",
-    "main.js": "/crat-pdfinvoice/static/js/main.9d48ccc1.chunk.js",
-    "main.js.map": "/crat-pdfinvoice/static/js/main.9d48ccc1.chunk.js.map",
+    "main.css": "/crat-pdfinvoice/static/css/main.813feca2.chunk.css",
+    "main.js": "/crat-pdfinvoice/static/js/main.d2de7397.chunk.js",
+    "main.js.map": "/crat-pdfinvoice/static/js/main.d2de7397.chunk.js.map",
     "runtime-main.js": "/crat-pdfinvoice/static/js/runtime-main.ed41ee7a.js",
     "runtime-main.js.map": "/crat-pdfinvoice/static/js/runtime-main.ed41ee7a.js.map",
     "static/js/2.70e61334.chunk.js": "/crat-pdfinvoice/static/js/2.70e61334.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.7af69234.chunk.js": "/crat-pdfinvoice/static/js/3.7af69234.chunk.js",
     "static/js/3.7af69234.chunk.js.map": "/crat-pdfinvoice/static/js/3.7af69234.chunk.js.map",
     "index.html": "/crat-pdfinvoice/index.html",
-    "static/css/main.7ae9ab35.chunk.css.map": "/crat-pdfinvoice/static/css/main.7ae9ab35.chunk.css.map",
+    "static/css/main.813feca2.chunk.css.map": "/crat-pdfinvoice/static/css/main.813feca2.chunk.css.map",
     "static/js/2.70e61334.chunk.js.LICENSE.txt": "/crat-pdfinvoice/static/js/2.70e61334.chunk.js.LICENSE.txt",
-    "static/js/main.9d48ccc1.chunk.js.LICENSE.txt": "/crat-pdfinvoice/static/js/main.9d48ccc1.chunk.js.LICENSE.txt"
+    "static/js/main.d2de7397.chunk.js.LICENSE.txt": "/crat-pdfinvoice/static/js/main.d2de7397.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ed41ee7a.js",
     "static/js/2.70e61334.chunk.js",
-    "static/css/main.7ae9ab35.chunk.css",
-    "static/js/main.9d48ccc1.chunk.js"
+    "static/css/main.813feca2.chunk.css",
+    "static/js/main.d2de7397.chunk.js"
   ]
 }
